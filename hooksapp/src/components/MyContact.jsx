@@ -13,11 +13,13 @@ const msgDisplay = (msg, color) => {
 }
 
 
-const MyContact = () => {
 
-    const [search, setSearch] = useState ('');
-    const [users, setUsers] = useState ([]);
-    const [isLoading, setIsLoading] = useState(true);
+const MyContact = () => {
+  
+  const [search, setSearch] = useState ('');
+  const [users, setUsers] = useState ([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [resultSearch, setResultSearch] = useState([]);
 
     console.log(users)
 
@@ -31,8 +33,29 @@ const MyContact = () => {
         .catch(error => console.log(error.message))
     }, []);
     
-    console.log(search)
+    // console.log(search)
     useUpdateDocTitle(search)
+
+    
+    const filterUsers = () => {
+      const foundUsers = users.filter( user => {
+        return Object.values(user)
+        .join('')
+        .toLowerCase()
+        .includes(search.toLowerCase())
+      })
+      setResultSearch(foundUsers);
+    }
+    
+    useEffect(() => {
+      if (search !== '') {
+        filterUsers();
+      } else {
+        setResultSearch([])
+      }
+    }, [search]);
+    
+
 
     const handleChange = e => {
         setSearch(e.target.value)
@@ -50,8 +73,12 @@ const MyContact = () => {
       }
 
       {
+        resultSearch.length === 0 && search !== '' ? msgDisplay ('Pas de résultat', 'red')
+        :
+        search === '' ? msgDisplay('Veuillez effectuer une recherche', 'green')
+        :
         <TableUsers
-          dataArray={users}
+          dataArray={resultSearch}
           />
       }
     </div>

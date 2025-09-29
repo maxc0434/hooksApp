@@ -18,16 +18,15 @@ li {
   margin-top: 15px;
 }
 
-#table th{
+.table th{
   text-align: center;
   background-color: lightcoral;
   color: "#fff";
   border: 1px solid white;
   padding: 12px;
 }
-#table td{
-    text-align: center;
-  background-color: rgba(244, 240, 29, 0.269);
+.table td{
+  text-align: center;
   color: "#fff";
   border: 2px solid white;
   padding: 12px;

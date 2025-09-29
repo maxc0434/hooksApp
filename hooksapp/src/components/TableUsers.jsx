@@ -2,7 +2,7 @@ import React from 'react'
 
 const TableUsers = ({dataArray}) => {
   return (
-    <table id="table">
+    <table className='table table-striped-columns'>
         <thead>
             <tr>
                 <th>Nom</th>
