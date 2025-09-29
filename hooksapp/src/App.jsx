@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { useState } from "react";
+// import { useCallback } from "react";
+// import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import ProgressBarCallBack from "./components/ProgressBarCallBack";
@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Profil from "./pages/Profil";
 import PrivateRoute from "./components/PrivateRoute";
 import ClickSayHello from "./components/ClickSayHello";
+import MyContact from "./components/MyContact";
 
 function App() {
   // const [user, setUser] = useState({ name: "Lisa", age: 8 });
@@ -47,6 +48,8 @@ function App() {
 <div>
     <h1> Hook CustomHook </h1>
     <ClickSayHello/>
+
+    <MyContact/>
 </div>
 
     // <Router>
